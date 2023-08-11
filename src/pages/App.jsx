@@ -7,18 +7,22 @@ import Footer from "../components/footer/footer";
 
 import "./App.css";
 
-import imgDarkMode from "../img/fotoPerfil.jpg"
-import imgLightMode from "../img/fotoPerfilClaro.png"
+import imgDarkMode from "../img/fotoPerfil.jpg";
+import imgLightMode from "../img/fotoPerfilClaro.png";
 
 const App = () => {
 const [isLightMode,setIsLightMode] = useState(false)
+const toggleMode = () => {
+  setIsLightMode((prevMode) => !prevMode)
+}
 
-const imgSrc = isLightMode ? imgLightMode : imgDarkMode
-const imgAlt = isLightMode ? "Imagem no Modo Claro" : "Imagem no Modo Escuro"
+const imgSrc = isLightMode ? imgLightMode : imgDarkMode;
+const imgAlt = isLightMode ? "Imagem no Modo Claro" : "Imagem no Modo Escuro";
   return(
+    <div id="App" className={isLightMode ? "light" : ""}>
     <div id="container">
       <Profile imgSrc={imgSrc} imgAlt={imgAlt}>@Karol-ss</Profile>
-      <Switch></Switch>
+      <Switch mode={toggleMode} infoButton = {isLightMode}/>
       <div id="links">
       <ul>
         <Links link={"https://github.com"}>GitHub</Links>
@@ -34,6 +38,7 @@ const imgAlt = isLightMode ? "Imagem no Modo Claro" : "Imagem no Modo Escuro"
         <SocialLinks href={"#"} icon={"logo-Twitter"} />   
       </div>
       <Footer link={"#"}>@Karol-ss</Footer>
+    </div>
     </div>
   )
 }
