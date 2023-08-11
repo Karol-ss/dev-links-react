@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Profile from "../components/profile/profile";
+import Switch from "../components/switch/switch";
+import Links from "../components/links/links";
 
 import "./App.css";
 
 import imgDarkMode from "../img/fotoPerfil.jpg"
 import imgLightMode from "../img/fotoPerfilClaro.png"
-import Switch from "../components/switch/switch";
 
 const App = () => {
 const [isLightMode,setIsLightMode] = useState(false)
@@ -16,6 +17,14 @@ const imgAlt = isLightMode ? "Imagem no Modo Claro" : "Imagem no Modo Escuro"
     <div id="container">
       <Profile imgSrc={imgSrc} imgAlt={imgAlt}>@Karol-ss</Profile>
       <Switch></Switch>
+      <div id="links">
+      <ul>
+        <Links link={"https://github.com"}>GitHub</Links>
+        <Links link={"#"}>Instagram</Links>
+        <Links link={"#"}>Portifólios</Links>
+        <Links link={"#"}>Projetos</Links>
+      </ul>
+      </div>
     </div>
   )
 }
